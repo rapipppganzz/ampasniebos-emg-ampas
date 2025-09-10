@@ -1,113 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - RapipppModss</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anonymous Message</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    /* Light Mode Default */
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --accent-color: #10b981;
-      --border-color: #e5e7eb;
-    }
-
-    /* Dark Mode Override */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #111827;
-        --text-color: #f9fafb;
-        --accent-color: #10b981;
-        --border-color: #374151;
-      }
-    }
-
     body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
     }
-
-    input, button {
-      transition: all 0.2s ease;
+    /* Animasi floating biar kartu keliatan hidup */
+    @keyframes floaty {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .floaty {
+      animation: floaty 4s ease-in-out infinite;
     }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center px-4">
-  <div class="w-full max-w-md border rounded-xl p-8" style="background-color: var(--bg-color); border-color: var(--border-color); border-width: 1px;">
-    <h1 class="text-2xl font-semibold text-center mb-6">Login to RapipppModss</h1>
+<body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-600 to-orange-500 px-6 py-10">
 
-    <input
-      id="usernameInput"
-      type="text"
-      placeholder="Username"
-      class="w-full mb-4 px-4 py-3 rounded border text-base"
-      style="background-color: var(--bg-color); color: var(--text-color); border-color: var(--border-color);"
-    />
-    <input
-      id="passwordInput"
-      type="password"
-      placeholder="Password"
-      class="w-full mb-6 px-4 py-3 rounded border text-base"
-      style="background-color: var(--bg-color); color: var(--text-color); border-color: var(--border-color);"
-    />
+  <div class="w-full max-w-md">
+    <!-- Card utama -->
+    <div class="bg-white rounded-3xl overflow-hidden shadow-xl floaty transition transform hover:scale-[1.02]">
+      <!-- Header -->
+      <div class="flex items-center gap-4 px-6 py-4 border-b border-gray-100">
+        <img src="https://storage.googleapis.com/a1aa/image/5df75832-9f76-4ece-e6f3-683fd17d55b0.jpg"
+             alt="User avatar"
+             class="w-12 h-12 rounded-full ring-2 ring-pink-400"/>
+        <div class="text-gray-900 text-sm leading-tight">
+          <span class="font-normal">@BIBD</span>
+          <span class="font-bold ml-1">kirimi aku pesan anonim!</span>
+        </div>
+      </div>
 
-    <button
-      onclick="login()"
-      class="w-full py-3 rounded text-white font-semibold"
-      style="background-color: var(--accent-color);"
-    >
-      Login
+      <!-- Pesan random -->
+      <div class="relative bg-pink-400 bg-opacity-30 text-pink-700 text-xl font-normal px-6 py-10 rounded-b-3xl backdrop-blur-sm">
+        <span class="block animate-pulse">lagi ngapain nanti?</span>
+        <button class="absolute bottom-4 right-4 w-10 h-10 bg-white bg-opacity-70 rounded-full shadow-md flex items-center justify-center hover:scale-110 transition">
+          <img src="https://storage.googleapis.com/a1aa/image/c1c7fb05-e997-44ba-9254-e474d307b9f2.jpg"
+               alt="Dice icon"
+               class="w-5 h-5"/>
+        </button>
+      </div>
+    </div>
+
+    <!-- Info kecil -->
+    <p class="text-white text-center mt-4 text-sm flex items-center justify-center gap-1 opacity-90">
+      <i class="fas fa-lock"></i>
+      <span>tanya-jawab anonim</span>
+    </p>
+
+    <!-- Tombol kirim -->
+    <button type="button"
+            class="mt-5 w-full bg-black text-white font-bold text-lg rounded-full py-4 shadow-lg hover:bg-gray-900 hover:scale-[1.02] transition">
+      Kirim!
     </button>
 
-    <a
-      href="https://wa.me/6283159391279"
-      target="_blank"
-      class="block text-center mt-4 text-sm"
-      style="color: var(--accent-color);"
-    >
-      Contact Admin
-    </a>
+    <!-- Tulisan info -->
+    <p class="text-white text-center mt-12 text-lg font-semibold animate-bounce">
+      👇 205 kawan baru je tekan butang👇
+    </p>
 
-    <div id="status" class="mt-6 text-center text-sm"></div>
+    <!-- Tombol buat dapat link -->
+    <button type="button"
+            class="mt-4 w-full bg-black text-white font-bold text-lg rounded-full py-4 shadow-lg hover:bg-gray-900 hover:scale-[1.02] transition">
+      Dapatkan pesan untukmu sendiri!
+    </button>
+
+    <!-- Footer -->
+    <div class="flex justify-center gap-6 mt-6 text-pink-200 text-sm font-normal">
+      <a href="#" class="hover:underline">Terms</a>
+      <a href="#" class="hover:underline">Privacy</a>
+    </div>
   </div>
 
-  <script>
-    async function login() {
-      const username = document.getElementById("usernameInput").value.trim();
-      const password = document.getElementById("passwordInput").value.trim();
-      const status = document.getElementById("status");
-
-      if (!username || !password) {
-        status.textContent = "Please enter both username and password.";
-        status.style.color = "red";
-        return;
-      }
-
-      try {
-        const res = await fetch('https://raw.githubusercontent.com/rapipppganzz/improve-database/refs/heads/main/Astro.json');
-        const users = await res.json();
-
-        const foundUser = users.find(user => user.username === username && user.password === password);
-
-        if (foundUser) {
-          localStorage.setItem("username", username);
-          status.textContent = "Login successful. Redirecting...";
-          status.style.color = "green";
-          setTimeout(() => {
-            window.location.href = "home.html";
-          }, 1000);
-        } else {
-          status.textContent = "Invalid credentials.";
-          status.style.color = "red";
-        }
-      } catch (err) {
-        status.textContent = "Connection error.";
-        status.style.color = "orange";
-        console.error(err);
-      }
-    }
-  </script>
 </body>
 </html>
