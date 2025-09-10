@@ -8,25 +8,20 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    /* Animasi floating biar kartu keliatan hidup */
+    body { font-family: 'Inter', sans-serif; }
     @keyframes floaty {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-8px); }
       100% { transform: translateY(0px); }
     }
-    .floaty {
-      animation: floaty 4s ease-in-out infinite;
-    }
+    .floaty { animation: floaty 5s ease-in-out infinite; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-600 to-orange-500 px-6 py-10">
 
   <div class="w-full max-w-md">
     <!-- Card utama -->
-    <div class="bg-white rounded-3xl overflow-hidden shadow-xl floaty transition transform hover:scale-[1.02]">
+    <div class="bg-white rounded-3xl overflow-hidden shadow-2xl floaty">
       <!-- Header -->
       <div class="flex items-center gap-4 px-6 py-4 border-b border-gray-100">
         <img src="https://storage.googleapis.com/a1aa/image/5df75832-9f76-4ece-e6f3-683fd17d55b0.jpg"
@@ -38,13 +33,12 @@
         </div>
       </div>
 
-      <!-- Pesan random -->
-      <div class="relative bg-pink-400 bg-opacity-30 text-pink-700 text-xl font-normal px-6 py-10 rounded-b-3xl backdrop-blur-sm">
-        <span class="block animate-pulse">lagi ngapain nanti?</span>
-        <button class="absolute bottom-4 right-4 w-10 h-10 bg-white bg-opacity-70 rounded-full shadow-md flex items-center justify-center hover:scale-110 transition">
-          <img src="https://storage.googleapis.com/a1aa/image/c1c7fb05-e997-44ba-9254-e474d307b9f2.jpg"
-               alt="Dice icon"
-               class="w-5 h-5"/>
+      <!-- Form kirim pesan -->
+      <div class="relative bg-pink-400 bg-opacity-20 px-6 py-8 rounded-b-3xl backdrop-blur-sm">
+        <textarea placeholder="Ketik pesan anonimmu..."
+                  class="w-full h-28 p-4 rounded-2xl border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-500 resize-none"></textarea>
+        <button class="mt-4 w-full bg-black text-white font-bold text-lg rounded-full py-3 shadow-md hover:bg-gray-900 hover:scale-[1.02] transition">
+          Kirim Pesan 🚀
         </button>
       </div>
     </div>
@@ -52,24 +46,18 @@
     <!-- Info kecil -->
     <p class="text-white text-center mt-4 text-sm flex items-center justify-center gap-1 opacity-90">
       <i class="fas fa-lock"></i>
-      <span>tanya-jawab anonim</span>
+      <span>Pesanmu 100% anonim</span>
     </p>
-
-    <!-- Tombol kirim -->
-    <button type="button"
-            class="mt-5 w-full bg-black text-white font-bold text-lg rounded-full py-4 shadow-lg hover:bg-gray-900 hover:scale-[1.02] transition">
-      Kirim!
-    </button>
 
     <!-- Tulisan info -->
     <p class="text-white text-center mt-12 text-lg font-semibold animate-bounce">
-      👇 205 kawan baru je tekan butang👇
+      👇 205 teman baru saja bergabung 👇
     </p>
 
     <!-- Tombol buat dapat link -->
     <button type="button"
             class="mt-4 w-full bg-black text-white font-bold text-lg rounded-full py-4 shadow-lg hover:bg-gray-900 hover:scale-[1.02] transition">
-      Dapatkan pesan untukmu sendiri!
+      Buat link untukmu sendiri!
     </button>
 
     <!-- Footer -->
